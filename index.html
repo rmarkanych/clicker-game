@@ -13,9 +13,9 @@
     </header>
     <main>
       <section class="form">
-        <form id="form" class="form__register" onsubmit="return false;">
+        <form id="form" class="form__register" >
           <span class="form__wrapper">
-            <h2 class="form__title">Create account:</h2>
+            <h2 class="title">Create account:</h2>
             <label class="form__label"
               >Name
 
@@ -40,14 +40,23 @@
               />
             </label>
 
-            <button class="btn" role="button">
-              <span onclick="createUser()">Create user</span>
+            <button class="btn" type="submit">
+              <span >Create user</span>
             </button>
           </span>
         </form>
       </section>
       <section id="greeting" class="greeting__wrapper">
-        <h2 class="greeting__title">Hello,&nbsp<span id="userName"></span>!</h2>
+        <h2 class="title greeting__title">Hello,&nbsp<span id="userName"></span>!</h2>
+        <button id="logOut" type="submit" class="btn log-out" >
+          <span id="logOutWrapper">Log out</span>
+        </button>
+        <button id="earnPoint">Earn point</button>
+        <button id="restart">Restart</button>
+        <p id="score"></p>
+        <p id="lvl"></p>
+        <div id="enemy" class="enemy"></div>
+
       </section>
     </main>
 
