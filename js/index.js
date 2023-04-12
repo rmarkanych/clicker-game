@@ -1,4 +1,4 @@
-// Preloader 
+// Preloader
 function hidePreloader() {
     // Selecting DOM element
     const preloader = document.getElementById("preloader");
@@ -43,7 +43,7 @@ const maxClicksPerLvl = [5, 10, 15, 20, 25]
 //Arrow function to capitalize first letter
 const capitalizeName = n => n[0].toUpperCase() + n.slice(1);
 
-// Function to handle form 
+// Function to handle form
 function createUser(e) {
     e.preventDefault();
 
@@ -60,7 +60,7 @@ function createUser(e) {
     greeting.style.display = 'block';
     logOutBtn.style.display = 'block';
     logOutWrapper.style.display = 'flex';
-    document.body.style.backgroundImage = 'url("../images/bg-theme.jpg")'
+    document.body.style.backgroundImage = 'url("./images/bg-theme.jpg")'
 }
 
 // Function to logout
@@ -75,7 +75,7 @@ function logoutUser() {
     greeting.style.display = 'none';
     logOutBtn.style.display = 'none';
     logOutWrapper.style.display = 'none';
-    document.body.style.backgroundImage = 'url("../images/bg.png")'
+    document.body.style.backgroundImage = 'url("./images/bg.png")'
     // Clear input values
     nameInput.value = '';
     emailInput.value = '';
@@ -91,13 +91,13 @@ function checkLoggedInUser() {
         greeting.style.display = 'block';
         logOutBtn.style.display = 'block';
         logOutWrapper.style.display = 'flex';
-        document.body.style.backgroundImage = 'url("../images/bg-theme.jpg")'
+        document.body.style.backgroundImage = 'url("./images/bg-theme.jpg")'
     } else {
         logOutWrapper.style.display = 'none';
     }
 }
 
-// Event listener for form 
+// Event listener for form
 form.addEventListener('submit', createUser);
 
 // Event listener for log out button
@@ -116,9 +116,9 @@ function updateLvl() {
 }
 
 function updateEnemy() {
-   
+
     const enemyIndex = Math.floor(clicks / 5);
-   
+
     if (enemyIndex < enemyPic.length) {
         const enemyUrl = `./images/${enemyPic[enemyIndex]}`;
         enemyWrapper.style.backgroundImage = `url('${enemyUrl}')`;
@@ -133,14 +133,14 @@ function updateClicks() {
         lvl++
         if (lvl <= maxClicksPerLvl.length) {
             updateLvl();
-            updateEnemy(); 
+            updateEnemy();
             alert(`Congratulations! You have reached level ${lvl} with ${clicks} clicks!`);
             hidePreloader()
         } else {
             alert(`Congratulations! You have won the game with ${clicks} clicks!`);
             clickBtn.disabled = true;
         }
-       
+
     }
     score++;
     updateScore();
