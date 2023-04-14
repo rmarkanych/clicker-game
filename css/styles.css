@@ -114,6 +114,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  user-select: none;
 }
 
 ol,
@@ -315,6 +316,7 @@ table {
 /*stats*/
 
 .stats__wrapper {
+  user-select: none;
   display: flex;
   font-size: 24px;
   text-shadow: 1px 1px 2px rgb(255, 119, 0), 0 0 1em rgb(227, 95, 0),
@@ -328,8 +330,10 @@ table {
   justify-content: center;
   align-items: center;
   background-image: url('../images/1.png');
-  width: 400px;
-  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 500px;
+  height: 420px;
 }
 /* preloader */
 

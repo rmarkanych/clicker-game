@@ -29,14 +29,16 @@ const restart = document.getElementById('restart');
 const enemyWrapper = document.getElementById('enemy');
 const title = document.getElementById('mainTitle');
 
+// Game variables
 let score = 0;
 let lvl = 1;
 let clicks = 0;
 
+// Enemy images and maximum clicks per level
 const enemyPic = ['1.png', '2.png', '3.png', '4.png', '5.png'];
 const maxClicksPerLvl = [5, 10, 15, 20, 25];
 
-//Arrow function to capitalize first letter
+//Helper function to capitalize first letter
 const capitalizeName = (n) => n[0].toUpperCase() + n.slice(1);
 
 // Function to handle form
@@ -50,6 +52,7 @@ function createUser(e) {
   // Store user data in local storage
   localStorage.setItem('user', JSON.stringify({ name, email }));
   hidePreloader();
+
   // Update UI to show user is logged in
   form.style.display = 'none';
   title.style.display = 'none';
@@ -63,6 +66,7 @@ function createUser(e) {
 // Function to logout
 function logoutUser() {
   resetGame();
+
   // Remove user data from local storage
   localStorage.removeItem('user');
 
@@ -105,14 +109,17 @@ logOutBtn.addEventListener('click', logoutUser);
 // Call function to check for logged in user on page load
 checkLoggedInUser();
 
+//Function for updating score
 function updateScore() {
   scoreElement.textContent = score;
 }
 
+//Function for updating level
 function updateLvl() {
   lvlElement.textContent = lvl;
 }
 
+//Function for updating enemy
 function updateEnemy() {
   const enemyIndex = Math.floor(clicks / 5);
 
@@ -124,6 +131,7 @@ function updateEnemy() {
   }
 }
 
+//Function for updating clicks
 function updateClicks() {
   clicks++;
   if (clicks % maxClicksPerLvl[lvl - 1] === 0) {
@@ -145,9 +153,11 @@ function updateClicks() {
   updateScore();
 }
 
+//Listener for updating clicks
 clickBtn.addEventListener('click', updateClicks);
 enemyWrapper.addEventListener('click', updateClicks);
 
+//Function for reset game
 function resetGame() {
   hidePreloader();
   score = 0;
@@ -159,6 +169,8 @@ function resetGame() {
   enemyWrapper.addEventListener('click', updateClicks);
   title.style.display = 'none';
   enemyWrapper.style.backgroundImage = `url('/images/1.png')`;
+  enemyWrapper.style.backgroundSize = 'cover';
 }
 
+//Listener for reset btn
 restart.addEventListener('click', resetGame);
